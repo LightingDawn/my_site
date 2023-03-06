@@ -9,6 +9,9 @@
   },
   "author": "Coolbastian",
   "license": "ISC",
+  "engines": {
+    "node": "v18.x"
+  },
   "dependencies": {
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
