@@ -1,0 +1,35 @@
+<%- include('../shared/includes/head', { pageTitle: "心情日誌" }) %>
+  <meta name="description" content="有關於個人心情抒發的文章">
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/myarticle.css">
+</head>
+<body>
+  <%- include('../shared/includes/header') %>
+  <main>
+    <% if (diary !== [] && diary.length > 0) { %>
+      <div class="title">
+        <h1>心情日誌</h1>
+      </div>
+      <ul id="article">
+        <% for (const article of diary) { %>
+          <li title="<%= article.title %>">
+            <a href="/article_detail/<%= article._id %>">
+              <div class="image">
+                <img src='<%= article.imageURL %>' alt="<%= article.title %>">
+              </div>
+              <div id="auth-date">
+                <p><%= article.author.nickname %> - <%= article.date %></p>
+              </div>
+              <p class="article-title"><%= article.title %></p>
+            </a>
+          </li>
+        <% } %>
+      </ul>
+      <%- include('../shared/includes/paging', {route: 'diary'}) %>
+    <% } else { %>
+      <div class="no-content">
+        <h1>目前尚未有文章</h1>
+      </div>
+    <% } %>
+  </main>
+<%- include('../shared/includes/footer') %>

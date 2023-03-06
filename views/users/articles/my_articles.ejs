@@ -1,0 +1,36 @@
+<%- include('../../shared/includes/head', { pageTitle: "我發表的所有文章" }) %>
+  <meta name="description" content="我發表過的所有文章，都匯集在這個網頁上">
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/myarticle.css">
+</head>
+<body>
+  <%- include('../../shared/includes/header') %>
+  <main>
+    <% if (articles !== [] && articles.length > 0) { %>
+      <div class="author_article">
+        <p><span><%= articles[0].author.nickname %></span>的文章</p>
+      </div>
+      <ul id="article">
+        <% for (const article of articles) { %>
+          <li>
+            <a href="/article_detail/<%= article._id %>">
+              <div class="image">
+                <img src='<%= article.imageURL %>' alt="<%= article.title %>">
+              </div>
+              <div id="auth-date">
+                <p><%= article.author.nickname %> - <%= article.date %></p>
+              </div>
+              <p class="article-title"><%= article.title %></p>
+            </a>
+          </li>
+        <% } %>
+      </ul>
+      <%- include('../../shared/includes/paging', {route: 'article/myAllArticles'}) %>
+    <% } else { %>
+      <div class="no-content">
+        <h1>目前尚未有文章</h1>
+        <a href="/article/createYourArticle" class="btn">前往發表屬於你/妳的文章</a>
+      </div>
+    <% } %>
+  </main>
+<%- include('../../shared/includes/footer') %>

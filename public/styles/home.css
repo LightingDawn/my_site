@@ -1,0 +1,150 @@
+main {
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+
+#article {
+  display: grid;
+  grid-template-rows: 1fr;
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0;
+  margin-top: 3rem;
+  gap: 2rem 0;
+}
+
+#article li {
+  margin: 1rem auto;
+  padding: 1rem;
+  box-shadow: var(--shadow-box-medium);
+  transition: all 0.3s ease-in-out;
+  border-radius: var(--border-radius-small);
+  width: 17rem;
+}
+
+#article li:hover,
+#article li:active {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-box-large);
+}
+
+#article a {
+  color: var(--font-color-primary-900);
+}
+
+#article img {
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+}
+
+#article .image {
+  border-radius: var(--border-radius-avatar);
+}
+
+#auth-date {
+  display: flex;
+  justify-content: left;
+  padding: 0 var(--space-1);
+  color: var(--font-color-primary-400);
+  font-weight: 550;
+}
+
+#auth-date p {
+  margin: 0;
+}
+
+#article h1 {
+  margin: 0;
+  padding: 0 var(--space-1);
+  font-size: 1.25rem;
+  color: var(--font-color-primary-900);
+}
+
+.no-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 16rem);
+}
+
+.no-content a {
+  color: var(--font-color-primary-900);
+}
+
+.no-content a:hover,
+.no-content a:active {
+  opacity: 0.8;
+}
+
+.article-title {
+  display: inline-block;
+  font-weight: bold;
+  margin: var(--space-2) 0 0 0.2rem;
+  font-size: 1.2rem;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.all_articles {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.all_articles p {
+  font-weight: bold;
+  font-size: var(--space-8);
+  color: var(--font-color-primary-700);
+}
+
+.paging {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 5rem auto;
+}
+
+.paging a {
+  color: var(--font-color-primary-900);
+  border: 1px solid var(--color-paging);
+  background-color: rgb(224, 225, 227);
+  margin: 0 var(--space-2);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--border-radius-small);
+}
+
+.page {
+  margin: 0.4rem 0.1rem;
+}
+
+.paging a:hover,
+.paging a:active {
+  opacity: 0.7;
+}
+
+@media (min-width: 48rem) {
+  main {
+    margin: 0;
+  }
+  
+  #article {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 4rem;
+    gap: 4rem 2rem;
+  }
+
+  #article li {
+    margin: 0 auto;
+  }
+
+  .no-content {
+    height: calc(100vh - 8rem);
+  }
+}

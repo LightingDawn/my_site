@@ -1,0 +1,47 @@
+<%- include('../../shared/includes/head', { pageTitle: '修改文章' }) %>
+  <meta name="description" content="修補文章中的小瑕疵">
+  <link rel="stylesheet" href="/styles/createArticle.css">
+  <script src="/scripts/article_update.js" defer></script>
+</head>
+<body>
+  <%- include('../../shared/includes/header') %>
+    <% if (locals.isAuth) { %>
+      <main>
+        <h1>修改文章</h1>
+        <form id="post_article" action="/article/updateYourArticle/<%= articleData._id %>?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+          <p id="article-title">
+            <label for="title">標題 ：</label>
+            <input type="text" name="title" id="title" minlength="1" maxlength="40" value="<%= articleData.title %>" required>
+            <span>(限40個中文字)</span>
+          </p>
+          <p> 分類 ： 
+            <select id="select" name="myCategory" class="<%= articleTitle.title %>">
+              <% for (const category of categories) { %>
+                <option value="<%= category._id %>" id="change"><%= category.title %></option>
+              <% } %>
+            </select>
+          </p>
+          <p id="content-block">
+            <label for="content">文章內容 ：</label>
+            <textarea name="content" id="content" cols="100" rows="25" placeholder="修改自己的文章" required><%= articleData.content %></textarea>
+          </p>
+          <p id="image-block">
+            <label for="image">封面圖 ：</label>
+            <input type="file" id="image" name="image" accept="image/*">
+          </p>
+          <div id="submit">
+            <button class="btn">確定送出</button>
+          </div>
+        </form>
+      </main>
+    <% } else { %>
+      <main id="login">
+        <h1>請登入帳號再發布屬於您的文章</h1>
+        <div id="login-btn">
+          <a href="/login" class="btn">前往登入頁面</a>
+        </div>
+      </main>
+    <% } %>
+  
+
+<%- include('../../shared/includes/footer') %>

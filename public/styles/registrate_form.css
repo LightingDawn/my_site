@@ -1,0 +1,84 @@
+body {
+  background-color: var(--color-brightness-1);
+  height: 80vh;
+}
+
+main {
+  margin: 8rem auto;
+  max-width: 20rem;
+  background-color: white;
+  padding: var(--space-4);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--shadow-box-medium);
+}
+
+main h1 {
+  text-align: center;
+  margin: 0;
+}
+
+#registration span {
+  color: var(--color-error-light);
+}
+
+#registration input {
+  margin-top: var(--space-2);
+  display: block;
+  width: 100%;
+  height: 2rem;
+  border-radius: var(--border-radius-small);
+  font-size: var(--space-4);
+  padding: 0 var(--space-2);
+}
+
+#registration input:focus {
+  background-color: var(--font-color-primary-100);
+  outline: none;
+  border: 1px solid black;
+}
+
+#registration #submit {
+  text-align: center;
+}
+
+#submit button {
+  margin-top: 0.5rem;
+  transition: 0.3s ease;
+}
+
+#submit button:hover,
+#submit button:active {
+  background-color: var(--color-brightness-3);
+}
+
+#error {
+  margin-top: var(--space-2);
+  background-color: var(--color-error-background);
+  height: 3rem;
+  text-align: center;
+  border-radius: var(--border-radius-small);
+  padding: 0 0.1rem;
+}
+
+#error-message {
+  color: var(--color-error-light);
+  font-weight: bold;
+}
+
+@media (min-width: 48rem) {
+  body {
+    height: 100vh;
+  }
+
+  main {
+    margin: 4rem auto;
+    max-width: 30rem;
+  }
+
+  #error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--space-8);
+  }
+}

@@ -1,0 +1,54 @@
+<%- include('../../shared/includes/head', { pageTitle: '建立屬於自己的文章' }) %>
+  <meta name="description" content="發揮自己的天馬行空，創造出一篇有趣的文章">
+  <link rel="stylesheet" href="/styles/createArticle.css">
+</head>
+<body>
+  <%- include('../../shared/includes/header') %>
+    <% if (locals.isAuth) { %>
+      <main>
+        <h1>建立文章</h1>
+        <% if (sessionData.errorMessage) { %>
+          <div id="error">
+            <p id="error-message"><%= sessionData.errorMessage %></p>
+          </div>
+        <% } %>
+        <form id="post_article" action="/article/createYourArticle?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+          <p id="article-title">
+            <span>*</span>
+            <label for="title">標題 ：</label>
+            <input type="text" name="title" id="title" minlength="1" maxlength="40" required>
+            <span>(限40個中文字)</span>
+          </p>
+          <p>
+            <span>*</span> 分類 ：
+            <select id="select" name="myCategory">
+              <% for (const category of categories) { %>
+                <option value="<%= category._id %>" id="change"><%= category.title %></option>
+              <% } %>
+            </select>
+          </p>
+          <p id="content-block">
+            <label for="content"><span>*</span> 文章內容 ：</label>
+            <textarea name="content" id="content" cols="100" rows="25" placeholder="寫出屬於自己的文章" required></textarea>
+          </p>
+          <p id="image-block">
+            <span></span>
+            <label for="image">封面圖 ：</label>
+            <input type="file" id="image" name="image" accept="image/*">
+          </p>
+          <div id="submit">
+            <button class="btn">確定送出</button>
+          </div>
+        </form>
+      </main>
+    <% } else { %>
+      <main id="login">
+        <h1>請登入帳號再發布屬於您的文章</h1>
+        <div id="login-btn">
+          <a href="/login" class="btn">前往登入頁面</a>
+        </div>
+      </main>
+    <% } %>
+  
+
+<%- include('../../shared/includes/footer') %>

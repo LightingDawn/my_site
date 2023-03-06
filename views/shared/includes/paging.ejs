@@ -1,0 +1,7 @@
+<div class="paging">
+  <% for (let i = 1; i < totalLength + 1; i++) { %>
+    <div class="page">
+      <a href="/<%= route %>?limit=9&&page=<%= i %>"><%= i %></a>
+    </div>
+  <% } %>
+</div>

@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 80vh;
+}
+
+.container a {
+  display: block;
+  color: var(--font-color-primary-900);
+  font-size: var(--space-6);
+  width: 100%;
+  max-width: 10rem;
+  margin: 0 auto;
+}
+
+.container p {
+  background-color: var(--color-brightness-1);
+  padding: 1rem;
+  border-radius: var(--border-radius-small);
+  transition: 0.3s ease;
+}
+
+.container p:hover,
+.container p:active {
+  transform: scale(1.1);
+}
+
+@media (min-width: 48rem) {
+  .container a {
+    max-width: 10rem;
+  }
+}

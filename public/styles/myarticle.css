@@ -1,0 +1,33 @@
+body {
+  background-color: var(--color-pink-1);
+}
+
+#article li {
+  background-color: white;
+  box-shadow: 4px 4px 12px 4px rgba(0, 0, 0, 0.2);
+}
+
+#article li:hover {
+  box-shadow: var(--shadow-article);
+}
+
+.author_article {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.author_article p {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+}
+
+.author_article span {
+  font-weight: bolder;
+  padding: 0 var(--space-2);
+}
+
+.title {
+  text-align: center;
+  margin-top: 3rem;
+}

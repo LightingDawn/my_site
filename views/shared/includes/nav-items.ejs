@@ -1,0 +1,21 @@
+  <% if (!locals.isAuth) { %>
+  <li><a href="/signup">帳號申請</a></li>
+  <li><a href="/login">登入</a></li>
+  <% } %>
+
+  <% if (locals.isAuth && !locals.isAdmin) { %>
+    <li><a href="/article/createYourArticle">發表文章</a></li>
+    <li><a href="/article/myAllArticles">我的文章</a></li>
+  <% } %>
+
+  <% if (locals.isAdmin) { %>
+  <li><a href="/">管理文章</a></li>
+  <% } %>
+
+  <% if (locals.isAuth) { %>
+  <form action="/logout" method="POST">
+    <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+    <button class="btn btn-alt">登出</button>
+  </form>
+  <% } %>
+  <!-- <li><a href="/">文章管理</a></li> -->
