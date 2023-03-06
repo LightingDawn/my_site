@@ -1,5 +1,5 @@
 const db = require("../data/database");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const mongodb = require("mongodb");
 
 class User {
